@@ -210,9 +210,9 @@ static int iprint_cache_add_printer(http_t *http,
 			*response = NULL;	/* IPP Response */
 	ipp_attribute_t	*attr;			/* Current attribute */
 	cups_lang_t	*language = NULL;	/* Default language */
-	char		*name,			/* printer-name attribute */
-			*info,			/* printer-info attribute */
-			smb_enabled,		/* smb-enabled attribute */
+	const char	*name;			/* printer-name attribute */
+	const char	*info;			/* printer-info attribute */
+	char		smb_enabled,		/* smb-enabled attribute */
 			secure;			/* security-enabled attrib. */
 
 	char		*httpPath;	/* path portion of the printer-uri */
