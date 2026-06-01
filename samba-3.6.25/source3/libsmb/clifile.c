@@ -26,6 +26,7 @@
 #include "libsmb/clirap.h"
 #include "trans2.h"
 #include "ntioctl.h"
+#include <sys/sysmacros.h>
 
 /***********************************************************
  Common function for pushing stings, used by smb_bytes_push_str()

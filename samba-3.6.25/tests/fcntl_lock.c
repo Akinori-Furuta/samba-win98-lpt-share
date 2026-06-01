@@ -20,6 +20,10 @@
 #include <sys/wait.h>
 #endif
 
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 #include <errno.h>
 
 static int sys_waitpid(pid_t pid,int *status,int options)

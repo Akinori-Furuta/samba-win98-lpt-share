@@ -25,6 +25,7 @@
 #include "system/capability.h"
 #include "system/passwd.h"
 #include "system/filesys.h"
+#include <sys/sysmacros.h>
 
 #ifdef HAVE_SYS_PRCTL_H
 #include <sys/prctl.h>

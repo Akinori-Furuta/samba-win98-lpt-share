@@ -4,6 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#ifdef HAVE_STRING_H
+#include <string.h>
+#endif
 
 #define true 1
 #define false 0

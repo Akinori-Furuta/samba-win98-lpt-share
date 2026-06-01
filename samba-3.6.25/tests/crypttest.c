@@ -12,6 +12,10 @@
 #include <strings.h>
 #endif
 
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 #if !defined(HAVE_CRYPT)
 
 /*

@@ -38,6 +38,7 @@
 #include "smbprofile.h"
 #include "rpc_server/srv_pipe_hnd.h"
 #include "libsmb/libsmb.h"
+#include <sys/sysmacros.h>
 
 #define DIR_ENTRY_SAFETY_MARGIN 4096
 

@@ -7,6 +7,9 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
 
 #define DATA "conftest.trunc"
 #define LEN 7663

@@ -8,6 +8,10 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 #define DATA "readlink.test"
 #define FNAME "rdlnk.file"
 

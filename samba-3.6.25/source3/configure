@@ -8588,6 +8588,9 @@ else
 /* end confdefs.h.  */
 
 #include <unistd.h>
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
 main () {
 #if _LFS64_LARGEFILE == 1
 exit(0);
@@ -8736,6 +8739,9 @@ else
 /* end confdefs.h.  */
 
 #include <unistd.h>
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
 int main() {
 #if _LFS64_LARGEFILE == 1
 exit(0);
@@ -9657,6 +9663,13 @@ else
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+#ifdef HAVE_STRING_H
+#include <string.h>
+#endif
+
 void foo(const char *format, ...) {
        va_list ap;
        int len;
@@ -10366,6 +10379,13 @@ else
 
 #include <sys/time.h>
 #include <unistd.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 int main() { struct timeval tv; exit(gettimeofday(&tv, NULL));}
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
@@ -11286,6 +11306,9 @@ else
 		#include <stdio.h>
 		#ifdef HAVE_DIRECT_H
 		#include <direct.h>
+		#endif
+		#ifdef HAVE_SYS_STAT_H
+		#include <sys/stat.h>
 		#endif
 int
 main ()
@@ -13162,6 +13185,13 @@ else
 #ifdef HAVE_ARPA_INET_H
 #include <arpa/inet.h>
 #endif
+#ifdef HAVE_STRING_H
+#include <string.h>
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 int main() { struct in_addr ip; ip.s_addr = 0x12345678;
 if (strcmp(inet_ntoa(ip),"18.52.86.120") &&
     strcmp(inet_ntoa(ip),"120.86.52.18")) { exit(0); }
@@ -13717,6 +13747,9 @@ else
 #include <sys/types.h>
 #include <netdb.h>
 #include <netinet/in.h>
+#ifdef HAVE_NET_IF_H
+#include <net/if.h>
+#endif
 
 int
 main ()
@@ -15488,6 +15521,13 @@ else
   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <errno.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 int main() { setresuid(1,1,1); setresuid(2,2,2); exit(errno==EPERM?0:1);}
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
@@ -15523,6 +15563,10 @@ else
 /* end confdefs.h.  */
 #include <unistd.h>
 #include <errno.h>
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 int main() { errno = 0; setresgid(1,1,1); exit(errno != 0 ? (errno==EPERM ? 0 : 1) : 0);}
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
@@ -17221,6 +17265,9 @@ else
 
 #include <unistd.h>
 #include <sys/utsname.h>
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
 int main() {
        /* glibc up to 2.3 has a broken getgrouplist */
 #if defined(__GLIBC__) && defined(__GLIBC_MINOR__)
@@ -17283,6 +17330,9 @@ $as_echo_n "checking for stat64 in <sys/stat.h>... " >&6; }
 #include <unistd.h>
 #endif
 #include <sys/stat.h>
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
 
 int
 main ()
@@ -17316,6 +17366,9 @@ $as_echo_n "checking for lstat64 in <sys/stat.h>... " >&6; }
 #include <unistd.h>
 #endif
 #include <sys/stat.h>
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
 
 int
 main ()
@@ -17348,6 +17401,9 @@ $as_echo_n "checking for fstat64 in <sys/stat.h>... " >&6; }
 #include <unistd.h>
 #endif
 #include <sys/stat.h>
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
 
 int
 main ()
@@ -21446,6 +21502,13 @@ else
   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <stdio.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 int main() { long long x = 1000000; x *= x; exit(((x/1000000) == 1000000)? 0: 1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
@@ -21538,6 +21601,13 @@ else
   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <time.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 int main() { exit((sizeof(time_t) == 8) ? 0 : 1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
@@ -21570,6 +21640,13 @@ else
   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <time.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 int main() {
 	struct tm *tm;
 	if (sizeof(time_t) == 8) {
@@ -21620,6 +21697,13 @@ else
 /* end confdefs.h.  */
 #include <stdio.h>
 #include <sys/stat.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 int main() { exit((sizeof(off_t) == 8) ? 0 : 1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
@@ -21657,6 +21741,10 @@ else
 #endif
 #include <stdio.h>
 #include <sys/stat.h>
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 int main() { struct stat64 st; off64_t s; if (sizeof(off_t) == sizeof(off64_t)) exit(1); exit((lstat64("/dev/null", &st)==0)?0:1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
@@ -21694,6 +21782,10 @@ else
 #endif
 #include <stdio.h>
 #include <sys/stat.h>
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 int main() { exit((sizeof(ino_t) == 8) ? 0 : 1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
@@ -21731,6 +21823,10 @@ else
 #endif
 #include <stdio.h>
 #include <sys/stat.h>
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 int main() { struct stat64 st; ino64_t s; if (sizeof(ino_t) == sizeof(ino64_t)) exit(1); exit((lstat64("/dev/null", &st)==0)?0:1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
@@ -21768,6 +21864,9 @@ else
 #endif
 #include <stdio.h>
 #include <sys/stat.h>
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
 int main() { exit((sizeof(dev_t) == 8) ? 0 : 1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
@@ -21805,6 +21904,9 @@ else
 #endif
 #include <stdio.h>
 #include <sys/stat.h>
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
 int main() { struct stat64 st; dev64_t s; if (sizeof(dev_t) == sizeof(dev64_t)) exit(1); exit((lstat64("/dev/null", &st)==0)?0:1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
@@ -21915,6 +22017,10 @@ else
 #include <unistd.h>
 #endif
 #include <sys/types.h>
+#ifdef HAVE_SYS_SYSMACROS_H
+#include <sys/sysmacros.h>
+#endif
+
 int main() { dev_t dev; int i = major(dev); return 0; }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
@@ -21951,6 +22057,10 @@ else
 #include <unistd.h>
 #endif
 #include <sys/types.h>
+#ifdef HAVE_SYS_SYSMACROS_H
+#include <sys/sysmacros.h>
+#endif
+
 int main() { dev_t dev; int i = minor(dev); return 0; }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
@@ -21987,6 +22097,10 @@ else
 #include <unistd.h>
 #endif
 #include <sys/types.h>
+#ifdef HAVE_SYS_SYSMACROS_H
+#include <sys/sysmacros.h>
+#endif
+
 int main() { dev_t dev = makedev(1,2); return 0; }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
@@ -22019,6 +22133,12 @@ else
   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <stdio.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
 int main() { char c; c=250; exit((c > 0)?0:1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
@@ -22122,6 +22242,12 @@ else
 /* end confdefs.h.  */
 #include <sys/types.h>
 #include <dirent.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
 int main() { struct dirent *di; DIR *d = opendir("."); di = readdir(d);
 if (di && di->d_name[-2] == '.' && di->d_name[-1] == 0 &&
 di->d_name[0] == 0) exit(0); exit(1);}
@@ -22154,6 +22280,13 @@ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <sys/types.h>
 #include <utime.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 int
 main ()
 {
@@ -23250,6 +23383,13 @@ else
 #include <sys/types.h>
 #include <fcntl.h>
 #include <signal.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 #ifndef F_NOTIFY
 #define F_NOTIFY 1026
 #endif
@@ -23883,6 +24023,13 @@ else
 #include <fcntl.h>
 #include <signal.h>
 #include <sys/file.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 #ifndef LOCK_MAND
 #define LOCK_MAND	32
 #define LOCK_READ	64
@@ -24066,6 +24213,13 @@ else
 
 #include <sys/types.h>
 #include <sys/capability.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 int main() {
  cap_t cap;
  cap_value_t vals[1];
@@ -24795,6 +24949,9 @@ else
 #if defined(HAVE_UNISTD_H)
 #include <unistd.h>
 #endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -25052,6 +25209,12 @@ else
 #include <stdio.h>
 #include <limits.h>
 #include <signal.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
 
 void exit_on_core(int ignored) {
 	exit(1);
@@ -33596,6 +33759,9 @@ else
 #if defined(HAVE_UNISTD_H)
 #include <unistd.h>
 #endif
+#if defined(HAVE_STDLIB_H)
+#include <stdlib.h>
+#endif
 #include <sys/types.h>
 #include <sys/statvfs.h>
 int main()
@@ -33821,6 +33987,9 @@ else
 #include <sys/param.h>
 #include <sys/types.h>
 #include <sys/mount.h>
+#if defined(HAVE_UNISTD_H)
+#include <unistd.h>
+#endif
 int main()
   {
     struct statfs fsd;
@@ -33871,6 +34040,9 @@ else
 #ifdef HAVE_SYS_VFS_H
 #include <sys/vfs.h>
 #endif
+#if defined(HAVE_UNISTD_H)
+#include <unistd.h>
+#endif
 int main()
   {
   struct statfs fsd;
@@ -33913,6 +34085,9 @@ else
 /* end confdefs.h.  */
 #include <sys/types.h>
 #include <sys/statfs.h>
+#if defined(HAVE_UNISTD_H)
+#include <unistd.h>
+#endif
 int main()
   {
   struct statfs fsd;
@@ -33958,6 +34133,9 @@ else
 #endif
 #ifdef HAVE_SYS_MOUNT_H
 #include <sys/mount.h>
+#endif
+#if defined(HAVE_UNISTD_H)
+#include <unistd.h>
 #endif
 int main()
   {
@@ -34008,6 +34186,9 @@ else
 #endif
 #ifdef HAVE_SYS_FS_TYPES_H
 #include <sys/fs_types.h>
+#endif
+#if defined(HAVE_UNISTD_H)
+#include <unistd.h>
 #endif
 int main()
   {
@@ -40475,6 +40656,9 @@ $as_echo "yes" >&6; }
 $as_echo_n "checking if libpthread is linked... " >&6; }
     cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
+#ifdef HAVE_PTHREAD_H
+#include <pthread.h>
+#endif
 
 int
 main ()

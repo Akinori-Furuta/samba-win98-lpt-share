@@ -16,6 +16,10 @@
 #include <unistd.h>
 #include <grp.h>
 
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
 int main()
 {
 	int i;
