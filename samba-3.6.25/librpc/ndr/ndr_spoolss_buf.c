@@ -89,6 +89,8 @@
 
 #define NDR_SPOOLSS_PUSH_ENUM(fn,in,out) do { \
 	struct _##fn _r;\
+	ZERO_STRUCT(_r); \
+\
 	if (flags & NDR_IN) {\
 		in;\
 		NDR_SPOOLSS_PUSH_ENUM_IN(fn);\
