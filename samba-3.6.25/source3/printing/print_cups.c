@@ -1288,10 +1288,30 @@ static int cups_queue_get(const char *sharename,
 
 		temp->sysjob   = job_id;
 		temp->size     = job_k_octets * 1024;
-		temp->status   = job_status == IPP_JOB_PENDING ? LPQ_QUEUED :
-				 job_status == IPP_JOB_STOPPED ? LPQ_PAUSED :
-                                 job_status == IPP_JOB_HELD ? LPQ_PAUSED :
-			         LPQ_PRINTING;
+		switch (job_status) {
+		IPP_JOB_PENDING:
+			temp->status = LPQ_QUEUED;
+			break;
+		IPP_JOB_HELD:
+		IPP_JOB_STOPPED:
+			temp->status = LPQ_PAUSED;
+			break;
+		 IPP_JOB_PROCESSING:
+			temp->status = LPQ_PRINTING;
+			break;
+		IPP_JOB_CANCELED:
+			temp->status = LPQ_DELETED;
+			break;
+		IPP_JOB_ABORTED:
+			temp->status = LPQ_ERROR;
+			break;
+		IPP_JOB_COMPLETED:
+			temp->status = LPQ_PRINTED;
+			break;
+		default:
+			temp->status = LPQ_PRINTING;
+			break;
+		}
 		temp->priority = job_priority;
 		temp->time     = job_time;
 		strlcpy(temp->fs_user, user_name, sizeof(temp->fs_user));
