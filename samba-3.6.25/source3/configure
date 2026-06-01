@@ -9683,7 +9683,7 @@ void foo(const char *format, ...) {
 
        exit(0);
 }
-int main() { foo("hello"); }
+int main() { foo("hello"); return 0; }
 
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
