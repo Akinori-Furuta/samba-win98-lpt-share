@@ -182,8 +182,9 @@
 /* TODO: set _ndr_info->flags correct */
 #define NDR_SPOOLSS_SIZE_ENUM_LEVEL(fn) do { \
 	struct __##fn __r;\
-	DATA_BLOB _data_blob_info;\
+	DATA_BLOB _data_blob_info = {0};\
 	struct ndr_push *_ndr_info = ndr_push_init_ctx(mem_ctx);\
+\
 	if (!_ndr_info) return 0;\
 	_ndr_info->flags|=LIBNDR_FLAG_NO_NDR_SIZE;\
 	__r.in.level	= level;\
@@ -197,8 +198,9 @@
 /* TODO: set _ndr_info->flags correct */
 #define NDR_SPOOLSS_SIZE_ENUM(fn) do { \
 	struct __##fn __r;\
-	DATA_BLOB _data_blob_info;\
+	DATA_BLOB _data_blob_info = {0};\
 	struct ndr_push *_ndr_info = ndr_push_init_ctx(mem_ctx);\
+\
 	if (!_ndr_info) return 0;\
 	_ndr_info->flags|=LIBNDR_FLAG_NO_NDR_SIZE;\
 	__r.in.count	= count;\
