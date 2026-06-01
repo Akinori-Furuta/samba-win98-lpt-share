@@ -437,7 +437,7 @@ static int have_syscall(void)
 	return 0;
 }
 
-main()
+int main()
 {
         if (getuid() != 0) {
 #if (defined(AIX) && defined(USE_SETREUID))

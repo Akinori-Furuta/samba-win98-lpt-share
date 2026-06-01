@@ -8652,7 +8652,7 @@ else
 #include <sys/utsname.h>
 #include <string.h>
 #include <stdlib.h>
-main() {
+int main() {
 #if _LFS64_LARGEFILE == 1
        struct utsname uts;
        char *release;
@@ -8736,7 +8736,7 @@ else
 /* end confdefs.h.  */
 
 #include <unistd.h>
-main () {
+int main() {
 #if _LFS64_LARGEFILE == 1
 exit(0);
 #else
@@ -9545,7 +9545,7 @@ else
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
-main() {
+int main() {
   struct stat st;
   char tpl[20]="/tmp/test.XXXXXX";
   int fd = mkstemp(tpl);
@@ -9683,7 +9683,7 @@ void foo(const char *format, ...) {
 
        exit(0);
 }
-main() { foo("hello"); }
+int main() { foo("hello"); }
 
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
@@ -10366,7 +10366,7 @@ else
 
 #include <sys/time.h>
 #include <unistd.h>
-main() { struct timeval tv; exit(gettimeofday(&tv, NULL));}
+int main() { struct timeval tv; exit(gettimeofday(&tv, NULL));}
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
   libreplace_cv_HAVE_GETTIMEOFDAY_TZ=yes
@@ -13162,7 +13162,7 @@ else
 #ifdef HAVE_ARPA_INET_H
 #include <arpa/inet.h>
 #endif
-main() { struct in_addr ip; ip.s_addr = 0x12345678;
+int main() { struct in_addr ip; ip.s_addr = 0x12345678;
 if (strcmp(inet_ntoa(ip),"18.52.86.120") &&
     strcmp(inet_ntoa(ip),"120.86.52.18")) { exit(0); }
 exit(1);}
@@ -15488,7 +15488,7 @@ else
   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <errno.h>
-main() { setresuid(1,1,1); setresuid(2,2,2); exit(errno==EPERM?0:1);}
+int main() { setresuid(1,1,1); setresuid(2,2,2); exit(errno==EPERM?0:1);}
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
   samba_cv_have_setresuid=yes
@@ -15523,7 +15523,7 @@ else
 /* end confdefs.h.  */
 #include <unistd.h>
 #include <errno.h>
-main() { errno = 0; setresgid(1,1,1); exit(errno != 0 ? (errno==EPERM ? 0 : 1) : 0);}
+int main() { errno = 0; setresgid(1,1,1); exit(errno != 0 ? (errno==EPERM ? 0 : 1) : 0);}
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
   samba_cv_have_setresgid=yes
@@ -17221,7 +17221,7 @@ else
 
 #include <unistd.h>
 #include <sys/utsname.h>
-main() {
+int main() {
        /* glibc up to 2.3 has a broken getgrouplist */
 #if defined(__GLIBC__) && defined(__GLIBC_MINOR__)
        int libc_major = __GLIBC__;
@@ -19133,7 +19133,7 @@ else
 
 		cat > conftest.c <<EOF
 int foo;
-main () { return 0;}
+int main () { return 0;}
 EOF
 		if { ac_try='${CC-cc} $CFLAGS $CPPFLAGS $LDFLAGS -Wl,-z,relro -o conftest conftest.c 1>&5'
   { { eval echo "\"\$as_me\":${as_lineno-$LINENO}: \"$ac_try\""; } >&5
@@ -21446,7 +21446,7 @@ else
   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <stdio.h>
-main() { long long x = 1000000; x *= x; exit(((x/1000000) == 1000000)? 0: 1); }
+int main() { long long x = 1000000; x *= x; exit(((x/1000000) == 1000000)? 0: 1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
   samba_cv_have_longlong=yes
@@ -21538,7 +21538,7 @@ else
   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <time.h>
-main() { exit((sizeof(time_t) == 8) ? 0 : 1); }
+int main() { exit((sizeof(time_t) == 8) ? 0 : 1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
   samba_cv_SIZEOF_TIME_T=yes
@@ -21570,7 +21570,7 @@ else
   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <time.h>
-main() {
+int main() {
 	struct tm *tm;
 	if (sizeof(time_t) == 8) {
 		time_t max_time = 0x7fffffffffffffffll;
@@ -21620,7 +21620,7 @@ else
 /* end confdefs.h.  */
 #include <stdio.h>
 #include <sys/stat.h>
-main() { exit((sizeof(off_t) == 8) ? 0 : 1); }
+int main() { exit((sizeof(off_t) == 8) ? 0 : 1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
   samba_cv_SIZEOF_OFF_T=yes
@@ -21657,7 +21657,7 @@ else
 #endif
 #include <stdio.h>
 #include <sys/stat.h>
-main() { struct stat64 st; off64_t s; if (sizeof(off_t) == sizeof(off64_t)) exit(1); exit((lstat64("/dev/null", &st)==0)?0:1); }
+int main() { struct stat64 st; off64_t s; if (sizeof(off_t) == sizeof(off64_t)) exit(1); exit((lstat64("/dev/null", &st)==0)?0:1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
   samba_cv_HAVE_OFF64_T=yes
@@ -21694,7 +21694,7 @@ else
 #endif
 #include <stdio.h>
 #include <sys/stat.h>
-main() { exit((sizeof(ino_t) == 8) ? 0 : 1); }
+int main() { exit((sizeof(ino_t) == 8) ? 0 : 1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
   samba_cv_SIZEOF_INO_T=yes
@@ -21731,7 +21731,7 @@ else
 #endif
 #include <stdio.h>
 #include <sys/stat.h>
-main() { struct stat64 st; ino64_t s; if (sizeof(ino_t) == sizeof(ino64_t)) exit(1); exit((lstat64("/dev/null", &st)==0)?0:1); }
+int main() { struct stat64 st; ino64_t s; if (sizeof(ino_t) == sizeof(ino64_t)) exit(1); exit((lstat64("/dev/null", &st)==0)?0:1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
   samba_cv_HAVE_INO64_T=yes
@@ -21768,7 +21768,7 @@ else
 #endif
 #include <stdio.h>
 #include <sys/stat.h>
-main() { exit((sizeof(dev_t) == 8) ? 0 : 1); }
+int main() { exit((sizeof(dev_t) == 8) ? 0 : 1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
   samba_cv_SIZEOF_DEV_T=yes
@@ -21805,7 +21805,7 @@ else
 #endif
 #include <stdio.h>
 #include <sys/stat.h>
-main() { struct stat64 st; dev64_t s; if (sizeof(dev_t) == sizeof(dev64_t)) exit(1); exit((lstat64("/dev/null", &st)==0)?0:1); }
+int main() { struct stat64 st; dev64_t s; if (sizeof(dev_t) == sizeof(dev64_t)) exit(1); exit((lstat64("/dev/null", &st)==0)?0:1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
   samba_cv_HAVE_DEV64_T=yes
@@ -21915,7 +21915,7 @@ else
 #include <unistd.h>
 #endif
 #include <sys/types.h>
-main() { dev_t dev; int i = major(dev); return 0; }
+int main() { dev_t dev; int i = major(dev); return 0; }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
   samba_cv_HAVE_DEVICE_MAJOR_FN=yes
@@ -21951,7 +21951,7 @@ else
 #include <unistd.h>
 #endif
 #include <sys/types.h>
-main() { dev_t dev; int i = minor(dev); return 0; }
+int main() { dev_t dev; int i = minor(dev); return 0; }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
   samba_cv_HAVE_DEVICE_MINOR_FN=yes
@@ -21987,7 +21987,7 @@ else
 #include <unistd.h>
 #endif
 #include <sys/types.h>
-main() { dev_t dev = makedev(1,2); return 0; }
+int main() { dev_t dev = makedev(1,2); return 0; }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
   samba_cv_HAVE_MAKEDEV=yes
@@ -22019,7 +22019,7 @@ else
   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <stdio.h>
-main() { char c; c=250; exit((c > 0)?0:1); }
+int main() { char c; c=250; exit((c > 0)?0:1); }
 _ACEOF
 if ac_fn_c_try_run "$LINENO"; then :
   samba_cv_HAVE_UNSIGNED_CHAR=yes
@@ -22122,7 +22122,7 @@ else
 /* end confdefs.h.  */
 #include <sys/types.h>
 #include <dirent.h>
-main() { struct dirent *di; DIR *d = opendir("."); di = readdir(d);
+int main() { struct dirent *di; DIR *d = opendir("."); di = readdir(d);
 if (di && di->d_name[-2] == '.' && di->d_name[-1] == 0 &&
 di->d_name[0] == 0) exit(0); exit(1);}
 _ACEOF
@@ -22977,7 +22977,7 @@ else
 /* end confdefs.h.  */
 
 #include <$jm_cv_include>
-main(){
+int main(){
     iconv_t cd = iconv_open("$j", "UCS-2LE");
     if (cd == 0 || cd == (iconv_t)-1) {
 	return -1;
@@ -23016,7 +23016,7 @@ else
 /* end confdefs.h.  */
 
 #include <$jm_cv_include>
-main(){
+int main(){
     iconv_t cd = iconv_open("$j", "UCS-2LE");
     if (cd == 0 || cd == (iconv_t)-1) {
 	return -1;
@@ -23055,7 +23055,7 @@ else
 /* end confdefs.h.  */
 
 #include <$jm_cv_include>
-main(){
+int main(){
     iconv_t cd = iconv_open("$j", "UCS-2LE");
     if (cd == 0 || cd == (iconv_t)-1) {
 	return -1;
@@ -23211,7 +23211,7 @@ else
 #ifndef F_GETLEASE
 #define F_GETLEASE	1025
 #endif
-main() {
+int main() {
        int fd = open("/dev/null", O_RDONLY);
        return fcntl(fd, F_GETLEASE, 0) == -1;
 }
@@ -23253,7 +23253,7 @@ else
 #ifndef F_NOTIFY
 #define F_NOTIFY 1026
 #endif
-main() {
+int main() {
        	exit(fcntl(open("/tmp", O_RDONLY), F_NOTIFY, 0) == -1 ?  1 : 0);
 }
 
@@ -23887,7 +23887,7 @@ else
 #define LOCK_MAND	32
 #define LOCK_READ	64
 #endif
-main() {
+int main() {
        	exit(flock(open("/dev/null", O_RDWR), LOCK_MAND|LOCK_READ) != 0);
 }
 
@@ -24066,7 +24066,7 @@ else
 
 #include <sys/types.h>
 #include <sys/capability.h>
-main() {
+int main() {
  cap_t cap;
  cap_value_t vals[1];
  if (!(cap = cap_get_proc()))
@@ -24805,7 +24805,7 @@ else
 #ifdef HAVE_SYS_FCNTL_H
 #include <sys/fcntl.h>
 #endif
-main() { struct flock64 fl64;
+int main() { struct flock64 fl64;
 #if defined(F_SETLKW64) && defined(F_SETLK64) && defined(F_GETLK64)
 exit(0);
 #else
@@ -25057,7 +25057,7 @@ void exit_on_core(int ignored) {
 	exit(1);
 }
 
-main() {
+int main() {
 	char *newpath;
 	signal(SIGSEGV, exit_on_core);
 	newpath = realpath("/tmp", NULL);
@@ -31438,7 +31438,7 @@ else
 /* end confdefs.h.  */
 
 #include<krb5.h>
-  main()
+int main()
   {
     krb5_context context;
     krb5_keytab keytab;
@@ -33598,7 +33598,7 @@ else
 #endif
 #include <sys/types.h>
 #include <sys/statvfs.h>
-  main ()
+int main()
   {
     struct statvfs64 fsd;
     exit (statvfs64 (".", &fsd));
@@ -33821,7 +33821,7 @@ else
 #include <sys/param.h>
 #include <sys/types.h>
 #include <sys/mount.h>
-  main ()
+int main()
   {
     struct statfs fsd;
     fsd.f_fsize = 0;
@@ -33871,7 +33871,7 @@ else
 #ifdef HAVE_SYS_VFS_H
 #include <sys/vfs.h>
 #endif
-  main ()
+int main()
   {
   struct statfs fsd;
   fsd.f_bsize = 0;
@@ -33913,7 +33913,7 @@ else
 /* end confdefs.h.  */
 #include <sys/types.h>
 #include <sys/statfs.h>
-  main ()
+int main()
   {
   struct statfs fsd;
   exit (statfs (".", &fsd, sizeof fsd, 0));
@@ -33959,7 +33959,7 @@ else
 #ifdef HAVE_SYS_MOUNT_H
 #include <sys/mount.h>
 #endif
-  main ()
+int main()
   {
   struct statfs fsd;
   fsd.f_fsize = 0;
@@ -34009,7 +34009,7 @@ else
 #ifdef HAVE_SYS_FS_TYPES_H
 #include <sys/fs_types.h>
 #endif
-  main ()
+int main()
   {
   struct fs_data fsd;
   /* Ultrix's statfs returns 1 for success,

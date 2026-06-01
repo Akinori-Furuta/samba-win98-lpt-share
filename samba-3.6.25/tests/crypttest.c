@@ -789,7 +789,7 @@ static ufc_long *_ufc_doit(ufc_long l1, ufc_long l2, ufc_long r1, ufc_long r2, u
 #define crypt ufc_crypt
 #endif
 
-main()
+int main()
 {
 	char passwd[9];
 	char salt[9];

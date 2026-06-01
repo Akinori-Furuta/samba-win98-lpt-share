@@ -2,7 +2,7 @@
 
 void exit(int);
 
-main()
+int main()
 {
     exit (0);
 #if !(defined(HAVE_FCNTL_LOCK) || defined(HAVE_STRUCT_FLOCK64))
