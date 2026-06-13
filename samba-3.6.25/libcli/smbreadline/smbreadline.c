@@ -22,6 +22,8 @@
 #include "../lib/util/select.h"
 #include "system/filesys.h"
 #include "system/select.h"
+/*! Use Function typedef. */
+#define WANT_OBSOLETE_TYPEDEFS
 #include "system/readline.h"
 #include "libcli/smbreadline/smbreadline.h"
 
