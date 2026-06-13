@@ -8,6 +8,9 @@ sudo apt update
 echo "$0: Checking extra packages."
 
 packages_ext=( \
+	+ libc-dev \
+	+ libc6-dev \
+	.
 	+ libcephfs-dev \
 	+ libcephfs2 \
 	. \
@@ -129,7 +132,8 @@ do
 done
 
 sudo apt install \
-build-essential \
+gcc \
+make \
 git \
 \
 autoconf \
