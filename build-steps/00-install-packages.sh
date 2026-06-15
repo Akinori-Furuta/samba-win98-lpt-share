@@ -230,7 +230,7 @@ xsltproc \
 python3-all-dev \
 libiconv-hook-dev \
 libnsl-dev \
-python-dev-is-python3 \
+\
 gawk \
 libunwind-dev \
 \
