@@ -7,7 +7,9 @@ This link make it easy to find smb.conf read by
 Samba suites under /usr/local/samba.
 
 ```bash
+pushd /etc/samba3
 sudo ln -s ../../usr/local/samba/lib/smb.conf
+popd
 ```
 
 The Samba suite built with prefix /usr/local/samba

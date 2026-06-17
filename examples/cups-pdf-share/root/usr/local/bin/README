@@ -5,9 +5,11 @@ They are dedicated to locally built samba-3.6.25
 with prefix /usr/local/samba.
 
 ```bash
+pushd /usr/local/bin
 sudo ln -s ../samba/bin/pdbedit pdbedit3
 sudo ln -s ../samba/bin/smbpasswd smbpasswd3
 sudo ln -s ../samba/bin/testparm testparm3
+popd
 ```
 
 Here, brief of notes for pdbedit3, smbpasswd3,
