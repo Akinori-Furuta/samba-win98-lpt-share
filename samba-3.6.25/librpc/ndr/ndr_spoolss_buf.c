@@ -46,7 +46,9 @@
 } while(0)
 
 #define NDR_SPOOLSS_PUSH_ENUM_OUT(fn) do { \
-	struct ndr_push *_ndr_info;\
+	struct ndr_push *_ndr_info = NULL;\
+	DATA_BLOB _data_blob_info = {0};\
+\
 	_r.in.level	= r->in.level;\
 	_r.in.buffer	= r->in.buffer;\
 	_r.in.offered	= r->in.offered;\
@@ -59,7 +61,6 @@
 			"SPOOLSS Buffer: *r->out.info but there's no r->in.buffer");\
 	}\
 	if (r->in.buffer) {\
-		DATA_BLOB _data_blob_info;\
 		_ndr_info = ndr_push_init_ctx(ndr);\
 		NDR_ERR_HAVE_NO_MEMORY(_ndr_info);\
 		_ndr_info->flags= ndr->flags;\
@@ -89,6 +90,8 @@
 
 #define NDR_SPOOLSS_PUSH_ENUM(fn,in,out) do { \
 	struct _##fn _r;\
+	ZERO_STRUCT(_r); \
+\
 	if (flags & NDR_IN) {\
 		in;\
 		NDR_SPOOLSS_PUSH_ENUM_IN(fn);\
@@ -180,8 +183,9 @@
 /* TODO: set _ndr_info->flags correct */
 #define NDR_SPOOLSS_SIZE_ENUM_LEVEL(fn) do { \
 	struct __##fn __r;\
-	DATA_BLOB _data_blob_info;\
+	DATA_BLOB _data_blob_info = {0};\
 	struct ndr_push *_ndr_info = ndr_push_init_ctx(mem_ctx);\
+\
 	if (!_ndr_info) return 0;\
 	_ndr_info->flags|=LIBNDR_FLAG_NO_NDR_SIZE;\
 	__r.in.level	= level;\
@@ -195,8 +199,9 @@
 /* TODO: set _ndr_info->flags correct */
 #define NDR_SPOOLSS_SIZE_ENUM(fn) do { \
 	struct __##fn __r;\
-	DATA_BLOB _data_blob_info;\
+	DATA_BLOB _data_blob_info = {0};\
 	struct ndr_push *_ndr_info = ndr_push_init_ctx(mem_ctx);\
+\
 	if (!_ndr_info) return 0;\
 	_ndr_info->flags|=LIBNDR_FLAG_NO_NDR_SIZE;\
 	__r.in.count	= count;\

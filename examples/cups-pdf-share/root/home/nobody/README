@@ -1,0 +1,16 @@
+# nobody's Home Directory
+
+Here /home/nobody is the path nobody's home directory.
+Create share directory, set mode and owner as follows.
+You can do it (1) step by step, or (2) Using install command.
+
+## share
+
+```bash
+# (1) Step by step method.
+sudo mkdir /home/nobody/share
+sudo chmod ug=rwx,o= /home/nobody/share
+sudo chown nobody:nogroup /home/nobody/share
+# or (2) Using install command.
+sudo install -m 770 -o nobody -g nogroup /home/nobody/share
+```
