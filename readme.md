@@ -179,6 +179,17 @@ init scripts into systemd.
 sudo systemctl daemon-reload
 ```
 
+### Check samba-3.6.25's smb.conf
+
+Run testparm3 to check samba built with prefix /usr/local/samba.
+If you didn't [create a symbolic link testparm3](./examples/cups-pdf-share/root/usr/local/bin/README) in /usr/local/bin,
+you can run testparm using full path /usr/local/samba/bin/testparm
+to executable.
+
+```bash
+testparm3 # or /usr/local/samba/bin/testparm
+```
+
 ### Replace Samba Server
 
 If you already installed Samba server package, stop the Samba server.
