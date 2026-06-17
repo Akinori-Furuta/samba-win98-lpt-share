@@ -1,0 +1,41 @@
+# Symbolic Links to Executables from /usr/local/bin
+
+Symbolic links to Samba tools from /usr/local/bin.
+They are dedicated to locally built samba-3.6.25
+with prefix /usr/local/samba.
+
+```bash
+sudo ln -s ../samba/bin/pdbedit pdbedit3
+sudo ln -s ../samba/bin/smbpasswd smbpasswd3
+sudo ln -s ../samba/bin/testparm testparm3
+```
+
+Here, brief of notes for pdbedit3, smbpasswd3,
+and testparm3.
+
+## pdbedit3
+
+The Samba password manipulating tool in detail.
+Samba passwords are stored into
+/usr/local/samba/private/passdb.tdb.
+
+## smbpasswd3
+
+The Samba password manipulating tool.
+Add user, and modify password in
+/usr/local/samba/private/passdb.tdb.
+
+## testparm3
+
+Test Samba configuration in /usr/local/samba/lib/smb.conf.
+
+## How About Other Tools
+
+If you want to use other tools, execute tools with full
+path. For example,
+
+```bash
+/usr/local/samba/bin/tdbdump /usr/local/samba/private/secrets.tdb
+```
+
+Or, create symbolic link for convenience.

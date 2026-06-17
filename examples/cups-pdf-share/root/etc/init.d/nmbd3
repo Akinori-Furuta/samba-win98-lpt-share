@@ -1,0 +1,94 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          nmbd3
+# Required-Start:    $network $local_fs $remote_fs
+# Required-Stop:     $network $local_fs $remote_fs
+# X-Start-Before:    smbd
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Samba 3 NetBIOS nameserver (nmbd)
+# Description: NetBIOS 3 name server to provide NetBIOS over IP naming services
+#              to clients
+### END INIT INFO
+
+
+SERVICE_NAME="$( /bin/basename "$0" )"
+[ -z "${SERVICE_NAME}" ] && SERVICE_NAME="nmbd3"
+SAMBA_PREFIX=/usr/local/samba
+NMBDPID="${SAMBA_PREFIX}/var/locks/nmbd.pid"
+
+if [ -z "${LD_LIBRARY_PATH}" ]
+then
+	export LD_LIBRARY_PATH="${SAMBA_PREFIX}/lib"
+else
+	export LD_LIBRARY_PATH="${SAMBA_PREFIX}/lib:${LD_LIBRARY_PATH}"
+fi
+
+export PATH="${SAMBA_PREFIX}/bin:${SAMBA_PREFIX}/sbin$( [ -n "${PATH}" ] && echo -n ":" )${PATH}"
+
+# clear conflicting settings from the environment
+unset TMPDIR
+
+# See if the daemons are there
+test -x "${SAMBA_PREFIX}/sbin/nmbd" || exit 0
+
+. /lib/lsb/init-functions
+
+case $1 in
+	start)
+		SERVER_ROLE=`"${SAMBA_PREFIX}/bin/testparm" --parameter-name="server role"  2>/dev/null | tail -1`
+		if [ "$SERVER_ROLE" = "active directory domain controller" ]; then
+		    exit 0
+		fi
+
+		if [ -n `which "${SAMBA_PREFIX}/bin/testparm"` ]
+		then
+			NMBD_DISABLED=`"${SAMBA_PREFIX}/bin/testparm" -s --parameter-name='disable netbios' 2>/dev/null`
+		fi
+		if [ "$NMBD_DISABLED" != Yes ]; then
+			log_daemon_msg "Starting NetBIOS 3 name server NBDPID=${NMBDPID}" "${SERVICE_NAME}"
+
+			if ! start-stop-daemon -S --oknodo -x "${SAMBA_PREFIX}/sbin/nmbd" -p "${NMBDPID}" -- -D
+			then
+				log_daemon_msg "Can not start NetBIOS 3 name server" "${SERVICE_NAME}"
+				log_end_msg 1
+				exit 1
+			fi
+			log_end_msg 0
+		fi
+
+		;;
+	stop)
+
+		log_daemon_msg "Stopping NetBIOS 3 name server" "${SERVICE_NAME}"
+
+		start-stop-daemon --stop --quiet --pidfile "${NMBDPID}"
+		# Wait a little and remove stale PID file
+		sleep 1
+		if [ -f "${NMBDPID}" ] && ! ps h `cat "${NMBDPID}"` > /dev/null
+		then
+			# Stale PID file (nmbd was succesfully stopped),
+			# remove it (should be removed by nmbd itself IMHO.)
+			rm -f "${NMBDPID}"
+		fi
+
+		log_end_msg 0
+
+		;;
+	restart|force-reload)
+		$0 stop
+		sleep 1
+		$0 start
+		;;
+        status)
+		status_of_proc -p "${NMBDPID}" "${SAMBA_PREFIX}/sbin/nmbd" "${SERVICE_NAME}"
+		exit $?
+		;;
+	*)
+		echo "Usage: /etc/init.d/${SERVICE_NAME} {start|stop|restart|force-reload|status}"
+		exit 1
+		;;
+esac
+
+exit 0

@@ -1,0 +1,79 @@
+; GSPDFA4.INF
+;
+; Network Virtual Printer Samba-CUPS-GhostScriptPDF
+; Paper size A4
+;
+[Version]
+Signature="$CHICAGO$"
+Class=Printer
+ClassGUID={4d36e979-e325-11ce-bfc1-08002be10318}
+Provider=%VENDOR%
+LayoutFile=layout.inf, layout1.inf, layout2.inf
+
+;
+; Manufacturer section.
+;
+[Manufacturer]
+"GhostScript"
+
+;
+; Model section
+;
+[GhostScript]
+%MODEL% = GSPDFA4.SPD,GhostScript_PDF_converter_A4
+
+;
+; Installer Section
+;
+[GSPDFA4.SPD]
+CopyFiles=@GSPDFA4.SPD,PSCRIPT
+DataSection=PSCRIPT_DATA
+
+;
+; Copy Section
+;
+[PSCRIPT]
+PSCRIPT.DRV
+PSCRIPT.HLP
+PSCRIPT.INI
+TESTPS.TXT
+APPLE380.SPD
+FONTS.MFM
+ICONLIB.DLL
+PSMON.DLL
+
+;
+; Data Section
+;
+[PSCRIPT_DATA]
+DriverFile=PSCRIPT.DRV
+HelpFile=PSCRIPT.HLP
+LanguageMonitor=%PS_MONITOR%
+
+;
+; Destination Directories section
+; 11: System Directory
+;
+[DestinationDirs]
+DefaultDestDir=11
+
+;
+; Source Disk Names section
+; Only one disk.
+[SourceDisksNames]
+1=%DISK%,,1
+
+;
+; Source Disks and Files section
+;
+[SourceDisksFiles]
+GSPDFA4.SPD=1
+
+;
+; Localizable Strings section
+;
+[Strings]
+VENDOR		=	"GhostScript"
+MODEL		=	"GhostScript PDF A4"
+DISK		=	"GhostScript PDF Driver"
+PS_MONITOR	=	"PostScript Language Monitor,PSMON.DLL"

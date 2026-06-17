@@ -1,0 +1,16 @@
+# To Find smb.conf from /etc/samba3
+
+## smb.conf (optional)
+
+Symbolic link to [/usr/local/samba/lib/smb.conf](../../usr/local/samba/lib/smb.conf).
+This link make it easy to find smb.conf read by
+Samba suites under /usr/local/samba.
+
+```bash
+sudo ln -s ../../usr/local/samba/lib/smb.conf
+```
+
+The Samba suite built with prefix /usr/local/samba
+read configuration file
+[/usr/local/samba/lib/smb.conf](../../usr/local/samba/lib/smb.conf).
+They know absolute path to /usr/local/samba/lib/smb.conf.

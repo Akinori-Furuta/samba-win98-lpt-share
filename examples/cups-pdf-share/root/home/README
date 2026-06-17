@@ -1,0 +1,15 @@
+# Create nobody's home directory
+
+Here /home is path to nobody's home directory.
+Create nobody home directory, set mode and owner as follows.
+You can do it (1) step by step, or (2) Using install command.
+
+## nobody
+
+```bash
+sudo mkdir /home/nobody
+sudo chmod u=rwx,g=rx,o= /home/nobody
+sudo chown nobody:nogroup /home/nobody
+# or
+sudo install -m 750 -o nobody -g nogroup /home/nobody
+```
