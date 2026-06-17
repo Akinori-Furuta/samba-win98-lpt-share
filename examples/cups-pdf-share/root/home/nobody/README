@@ -12,5 +12,5 @@ sudo mkdir /home/nobody/share
 sudo chmod ug=rwx,o= /home/nobody/share
 sudo chown nobody:nogroup /home/nobody/share
 # or (2) Using install command.
-sudo install -m 770 -o nobody -g nogroup /home/nobody/share
+sudo install -m 770 -o nobody -g nogroup -d /home/nobody/share
 ```
