@@ -15,7 +15,7 @@ sudo cp --preserve=timestamps cups-pdf.conf /etc/cups/
 sudo chmod 644 cups-pdf.conf
 sudo chown root:root cups-pdf.conf
 # or (2) Using install command.
-sudo install -m 644 -o root -g root -p cups.pdf /etc/cups/cups-pdf.conf
+sudo install -m 644 -o root -g root -p cups-pdf.conf /etc/cups/cups-pdf.conf
 ```
 
 The cups-pdf.conf contains some my favorite modifications.

@@ -11,5 +11,5 @@ sudo mkdir /home/nobody
 sudo chmod u=rwx,g=rx,o= /home/nobody
 sudo chown nobody:nogroup /home/nobody
 # or
-sudo install -m 750 -o nobody -g nogroup /home/nobody
+sudo install -m 750 -o nobody -g nogroup -d /home/nobody
 ```

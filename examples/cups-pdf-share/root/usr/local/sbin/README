@@ -3,8 +3,10 @@
 Place symbolic links to Samba daemons.
 
 ```bash
+pushd /usr/local/sbin
 sudo ln -s ../samba/sbin/nmbd nmbd3
 sudo ln -s ../samba/sbin/smbd smbd3
+popd
 ```
 
 ## smbd3
