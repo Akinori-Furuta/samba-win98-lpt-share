@@ -59,7 +59,7 @@ sudo apt install git
 ```
 
 Clone this repository. Here _$GitBase_ is the base directory to
-clone `samba-win98-lpt-share`.
+clone the `samba-win98-lpt-share`.
 
 ```bash
 cd $GitBase
@@ -98,7 +98,7 @@ sudo apt install printer-driver-cups-pdf
 
 ## Configure and Build
 
-Configure samba-3.6.25 with prefix `/usr/local/samba`. Build it.
+Configure samba-3.6.25 with prefix `/usr/local/samba`.
 
 ```bash
 # continue from previous command type in
@@ -147,7 +147,7 @@ sudo ./build-steps/20-make.sh install
 
 Read every READMEs under [examples/cups-pdf-share/root](./examples/cups-pdf-share/root/),
 and setup your Samba server. You need setup
-following items according to READMEs or your
+following items according to readme.md or your
 favorite configurations.
 
 + [Setup init scripts](./examples/cups-pdf-share/root/etc/init.d/README)
@@ -181,7 +181,8 @@ sudo systemctl daemon-reload
 
 ### Check samba-3.6.25's smb.conf
 
-Run testparm3 to check samba built with prefix /usr/local/samba.
+Run testparm3 to check smb.conf read by Samba built with
+prefix /usr/local/samba.
 If you didn't [create a symbolic link testparm3](./examples/cups-pdf-share/root/usr/local/bin/README) in /usr/local/bin,
 you can run testparm using full path /usr/local/samba/bin/testparm
 to executable.
@@ -208,12 +209,15 @@ sudo systemctl start nmbd3 smbd3
 
 ## Setup Windows 98 Client(s)
 
-You can see the Samba server from a Windows 98 client.
+You can see the Samba server from a Windows 98 client(s).
 Type server name as `\\server-name` and **\[Enter\]** in
 a explorer's address bar. The following picture shows
 explore server `\\share2404`.
 
 ![Explore Samba share server](medias/open-share-server.png)
+
+> [!TIP]
+> Shared printer(s) and folder(s) may vary according to your smb.conf.
 
 ### Share Folder
 
