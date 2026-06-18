@@ -59,7 +59,7 @@ sudo apt install git
 ```
 
 Clone this repository. Here _$GitBase_ is the base directory to
-clone `samba-win98-lpt-share`.
+clone the `samba-win98-lpt-share`.
 
 ```bash
 cd $GitBase
@@ -83,10 +83,10 @@ cd samba-win98-lpt-share
 ./build-steps/00-install-packages.sh
 ```
 
-> [!INFO]
+> [!TIP]
 > Some of packages may become redundant.
 
-### CUPS-PDF printer package
+### CUPS-PDF Printer Package
 
 You want to service virtual PDF printer, you need to install
 CUPS-PDF printer package.
@@ -98,7 +98,7 @@ sudo apt install printer-driver-cups-pdf
 
 ## Configure and Build
 
-Configure samba-3.6.25 with prefix `/usr/local/samba`. Build it.
+Configure samba-3.6.25 with prefix `/usr/local/samba`.
 
 ```bash
 # continue from previous command type in
@@ -147,7 +147,7 @@ sudo ./build-steps/20-make.sh install
 
 Read every READMEs under [examples/cups-pdf-share/root](./examples/cups-pdf-share/root/),
 and setup your Samba server. You need setup
-following items according to READMEs or your
+following items according to readme.md or your
 favorite configurations.
 
 + [Setup init scripts](./examples/cups-pdf-share/root/etc/init.d/README)
@@ -181,7 +181,8 @@ sudo systemctl daemon-reload
 
 ### Check samba-3.6.25's smb.conf
 
-Run testparm3 to check samba built with prefix /usr/local/samba.
+Run testparm3 to check smb.conf read by Samba built with
+prefix /usr/local/samba.
 If you didn't [create a symbolic link testparm3](./examples/cups-pdf-share/root/usr/local/bin/README) in /usr/local/bin,
 you can run testparm using full path /usr/local/samba/bin/testparm
 to executable.
@@ -206,22 +207,25 @@ Start samba-3.6.25 server.
 sudo systemctl start nmbd3 smbd3
 ```
 
-## Setup Windows 98 Client
+## Setup Windows 98 Client(s)
 
-You can see the Samba server from a Windows 98 client.
+You can see the Samba server from a Windows 98 client(s).
 Type server name as `\\server-name` and **\[Enter\]** in
 a explorer's address bar. The following picture shows
 explore server `\\share2404`.
 
 ![Explore Samba share server](medias/open-share-server.png)
 
-### Share folder
+> [!TIP]
+> Shared printer(s) and folder(s) may vary according to your smb.conf.
+
+### Share Folder
 
 Open `\\server-name\share` in a explore. You can see a share folder.
 All files and directories in `share` are public to the connected
 network (for most cases inside router). Every one can see and read them.
 
-### Virtual PDF printer
+### Virtual PDF Printer
 
 Open `\\server-name` in a explore, and **[right-button click]** on
 the PDF printer, You can see **Install...** in popup-menu. **[Click]** **Install...** and start printer setup wizard.
@@ -371,7 +375,7 @@ git merge origin/patch-to-build origin/patch-samba-printing-issue \
 origin/build-steps origin/add-extras
 ```
 
-## Appendix: Text encoding in PDF files
+## Appendix: Text Encoding in PDF Files
 
 Windows clients produce PostScript files containing custom encoded
 (mangled) texts. Texts are optimized for embedded fonts. So, they

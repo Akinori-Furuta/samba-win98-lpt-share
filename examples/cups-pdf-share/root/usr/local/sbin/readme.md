@@ -17,12 +17,12 @@ The Samba (SMB) daemon in built samba-3.6.25.
 
 The Samba NetBIOS name server daemon in built samba-3.6.25.
 
-> [!INFO]
+> [!TIP]
 > The init scripts [/etc/init.d/nmbd3](../../../etc/init.d/nmbd3),
 > and [/etc/init.d/smbd3](../../../etc/init.d/smbd3) refer
 > nmbd, and smbd by absolute path.
 
-> [!INFO]
+> [!TIP]
 > Use the winbindd in samba **pacakge** from linux distribution.
 > You can use nmbd and smbd in built samba-3.6.25 and winbindd
 > in samba package at a same time.
