@@ -8,7 +8,7 @@ the server. The server provides two services,
 + Share folder
   + Anyone can access
 + Virtual PDF printer
-  + Use CUPS PDF package printer-driver-cups-pdf
+  + Use CUPS-PDF package printer-driver-cups-pdf
   + Only prints to A4 size paper
   + Share output PDF files
     + Anyone can access
@@ -31,7 +31,7 @@ This git repository contains following items,
   + [Make wrapper](./build-steps/20-make.sh)
 + [Sample configuration files](./examples/cups-pdf-share/)
   + [Samba configuration](./examples/cups-pdf-share/root/etc/samba3/smb.conf)
-  + [CUPS PDF configurations](./examples/cups-pdf-share/root/etc/cups/cups-pdf.conf)
+  + [CUPS-PDF configurations](./examples/cups-pdf-share/root/etc/cups/cups-pdf.conf)
   + [Directories layout example](./examples/cups-pdf-share/root/)
     + Share folder
     + Virtual PDF printer
@@ -70,7 +70,7 @@ The `main` branch contains patched samba-3.6.25.
 
 ## Install Required Packages
 
-Install tools and libraries to build and run samba-3.6.25, and CUPS PDF.
+Install tools and libraries to build and run samba-3.6.25, and CUPS-PDF.
 
 ### Packages to Build Samba
 
@@ -86,10 +86,10 @@ cd samba-win98-lpt-share
 > [!INFO]
 > Some of packages may become redundant.
 
-### CUPS PDF printer package
+### CUPS-PDF printer package
 
 You want to service virtual PDF printer, you need to install
-CUPS PDF printer package.
+CUPS-PDF printer package.
 
 ```bash
 # continue from previous command type in
