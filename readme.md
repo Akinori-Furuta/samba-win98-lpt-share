@@ -83,7 +83,7 @@ cd samba-win98-lpt-share
 ./build-steps/00-install-packages.sh
 ```
 
-> [!INFO]
+> [!TIP]
 > Some of packages may become redundant.
 
 ### CUPS-PDF printer package
