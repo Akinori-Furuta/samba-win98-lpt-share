@@ -1,5 +1,8 @@
 ; GSPDFA4.INF
 ;
+; SPDX-License-Identifier: GPL-2.0-or-later
+; Copyright (C) 2026 Akinori Furuta(afuruta@m7.dion.ne.jp)
+;
 ; Network Virtual Printer Samba-CUPS-GhostScriptPDF
 ; Paper size A4
 ;

@@ -12,6 +12,8 @@
 #              to clients
 ### END INIT INFO
 
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Akinori Furuta(afuruta@m7.dion.ne.jp)
 
 SERVICE_NAME="$( /bin/basename "$0" )"
 [ -z "${SERVICE_NAME}" ] && SERVICE_NAME="nmbd3"
