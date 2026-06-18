@@ -63,7 +63,7 @@ clone `samba-win98-lpt-share`.
 
 ```bash
 cd $GitBase
-git clone https://github.com/Akinori-Furuta/samba-win98-lpt-share
+git clone https://github.com/Akinori-Furuta/samba-win98-lpt-share.git
 ```
 
 The `main` branch contains patched samba-3.6.25.
