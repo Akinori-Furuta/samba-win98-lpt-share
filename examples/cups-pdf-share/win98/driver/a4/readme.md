@@ -6,7 +6,7 @@ uses GhostScript ps2pdf (pdfwrite device) converter.
 + [Driver INF file GSPDFA4.INF](./GSPDFA4.INF)
   + Install PostScript printer driver
   + Install GSPDFA4.SPD
-+ [Simplified Printer Definition file GSPDFA4.SPD](./GSPDFA4.SPD)
++ [Simplified printer definition file GSPDFA4.SPD](./GSPDFA4.SPD)
   + Simplified /etc/cups/ppd/PDF.ppd
   + PDF.ppd defines many paper sizes, but ps2pdf can't detect
     paper size from PostScript file sent from Windows 98 clients.

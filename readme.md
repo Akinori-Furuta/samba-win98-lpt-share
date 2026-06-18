@@ -86,7 +86,7 @@ cd samba-win98-lpt-share
 > [!TIP]
 > Some of packages may become redundant.
 
-### CUPS-PDF printer package
+### CUPS-PDF Printer Package
 
 You want to service virtual PDF printer, you need to install
 CUPS-PDF printer package.
@@ -206,7 +206,7 @@ Start samba-3.6.25 server.
 sudo systemctl start nmbd3 smbd3
 ```
 
-## Setup Windows 98 Client
+## Setup Windows 98 Client(s)
 
 You can see the Samba server from a Windows 98 client.
 Type server name as `\\server-name` and **\[Enter\]** in
@@ -215,13 +215,13 @@ explore server `\\share2404`.
 
 ![Explore Samba share server](medias/open-share-server.png)
 
-### Share folder
+### Share Folder
 
 Open `\\server-name\share` in a explore. You can see a share folder.
 All files and directories in `share` are public to the connected
 network (for most cases inside router). Every one can see and read them.
 
-### Virtual PDF printer
+### Virtual PDF Printer
 
 Open `\\server-name` in a explore, and **[right-button click]** on
 the PDF printer, You can see **Install...** in popup-menu. **[Click]** **Install...** and start printer setup wizard.
@@ -371,7 +371,7 @@ git merge origin/patch-to-build origin/patch-samba-printing-issue \
 origin/build-steps origin/add-extras
 ```
 
-## Appendix: Text encoding in PDF files
+## Appendix: Text Encoding in PDF Files
 
 Windows clients produce PostScript files containing custom encoded
 (mangled) texts. Texts are optimized for embedded fonts. So, they
