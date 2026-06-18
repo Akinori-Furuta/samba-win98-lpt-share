@@ -1,4 +1,7 @@
 #!/bin/bash
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Akinori Furuta(afuruta@m7.dion.ne.jp)
+#
 # Common script will be sourced
 
 function FindSambaSourceTree() {

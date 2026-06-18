@@ -1,4 +1,7 @@
 #!/bin/bash
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Akinori Furuta(afuruta@m7.dion.ne.jp)
+#
 # Install packages to build samba-3.6.25
 
 echo "$0: Update package information."
