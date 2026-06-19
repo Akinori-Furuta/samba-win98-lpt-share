@@ -216,6 +216,30 @@ explore server `\\share2404`.
 
 ![Explore Samba share server](medias/open-share-server.png)
 
+Above picture shows one PDF printer and three share folders.
+
++ pdf
+  + Virtual PDF printer
++ PDFout
+  + Output files printed from pdf printer.
+  + Anyone can access.
++ PDFout-user
+  + Output files printed from pdf printer.
+  + Only user who logon Samba server can access.
+    + Add the user to Linux.
+    + Add the user to Samba.
+    + Setup spool directory /var/spool/cups-pdf/%u
+      + See the PDFout-user section in
+        [smb.conf](./examples/cups-pdf-share/root/usr/local/samba/lib/smb.conf)
+        and the (Out) key [cups-pdf.conf](./examples/cups-pdf-share/root/etc/cups/cups-pdf.conf)
++ share
+  + Public share folder.
+  + Anyone can access.
+    + Be careful, Logging on Windows as an user, and
+      the user is added to Samba and Linux.
+      Create a private share folder and setup
+      the smb.conf for the user.
+
 > [!TIP]
 > Shared printer(s) and folder(s) may vary according to your smb.conf.
 
